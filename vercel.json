@@ -10,30 +10,9 @@
       "entrypoint": "config/wsgi.py"
     },
     "gateway": {
-      "root": "services/gateway"
+      "root": "services/gateway",
+      "runtime": "node",
+      "entrypoint": "src/server.js"
     }
-  },
-  "rewrites": [
-    {
-      "source": "/api/data-service(/.*)?",
-      "destination": {
-        "type": "service",
-        "service": "data-service"
-      }
-    },
-    {
-      "source": "/api/gateway(/.*)?",
-      "destination": {
-        "type": "service",
-        "service": "gateway"
-      }
-    },
-    {
-      "source": "/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "web"
-      }
-    }
-  ]
+  }
 }
