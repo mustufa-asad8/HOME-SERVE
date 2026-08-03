@@ -5,7 +5,10 @@
             "framework": "vite"
         },
         "data-service": {
-            "root": "services/data-service"
+          "root": "services/data-service",
+          "framework": "django",
+          "runtime": "python",
+          "entrypoint": "api/index.py"
         },
         "gateway": {
             "root": "services/gateway"
