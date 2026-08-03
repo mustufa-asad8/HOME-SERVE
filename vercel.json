@@ -1,18 +1,37 @@
 {
-  "services": {
-    "web": {
-      "root": "apps/web",
-      "framework": "vite"
+    "services": {
+        "web": {
+            "root": "apps/web",
+            "framework": "vite"
+        },
+        "data-service": {
+            "root": "services/data-service"
+        },
+        "gateway": {
+            "root": "services/gateway"
+        }
     },
-    "data-service": {
-      "root": "services/data-service",
-      "runtime": "python",
-      "entrypoint": "config/wsgi.py"
-    },
-    "gateway": {
-      "root": "services/gateway",
-      "runtime": "node",
-      "entrypoint": "src/server.js"
-    }
-  }
+    "rewrites": [
+        {
+            "source": "/api/data-service(/.*)?",
+            "destination": {
+                "type": "service",
+                "service": "data-service"
+            }
+        },
+        {
+            "source": "/api/gateway(/.*)?",
+            "destination": {
+                "type": "service",
+                "service": "gateway"
+            }
+        },
+        {
+            "source": "/(.*)",
+            "destination": {
+                "type": "service",
+                "service": "web"
+            }
+        }
+    ]
 }
