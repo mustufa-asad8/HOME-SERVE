@@ -1,0 +1,11 @@
+{
+  "name": "homeserve-platform",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:gateway": "npm --prefix services/gateway run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "test:gateway": "npm --prefix services/gateway test"
+  }
+}
